@@ -18,6 +18,30 @@ public class RadioTests {
     }
 
     @Test
+    public void shouldSnowCurrentChanelMoreThenNine() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioChanel(10);
+
+        int expected = 0;
+        int actual = rad.getCurrentRadioChanel();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSnowCurrentChanelLessThenZero() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioChanel(-1);
+
+        int expected = 0;
+        int actual = rad.getCurrentRadioChanel();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSnowNextChanelInTheMiddle() {
         Radio rad = new Radio();
 
@@ -35,7 +59,7 @@ public class RadioTests {
         Radio rad = new Radio();
 
         rad.setCurrentRadioChanel(9);
-        rad.prevRadioChanel();
+        rad.nextRadioChanel();
 
         int expected = 0;
         int actual = rad.getCurrentRadioChanel();
@@ -76,6 +100,30 @@ public class RadioTests {
         rad.setCurrentRadioVolume(5);
 
         int expected = 5;
+        int actual = rad.getCurrentRadioVolume();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSnowCurrentVolumeMoreThenTen() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioVolume(11);
+
+        int expected = 0;
+        int actual = rad.getCurrentRadioVolume();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSnowCurrentVolumeLessThenZero() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadioVolume(-2);
+
+        int expected = 0;
         int actual = rad.getCurrentRadioVolume();
 
         assertEquals(expected, actual);
