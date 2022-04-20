@@ -45,10 +45,10 @@ public class RadioTests {
     public void shouldSnowNextChanelInTheMiddle() {
         Radio rad = new Radio();
 
-        rad.setCurrentRadioChanel(6);
+        rad.setCurrentRadioChanel(8);
         rad.nextRadioChanel();
 
-        int expected = 7;
+        int expected = 9;
         int actual = rad.getCurrentRadioChanel();
 
         assertEquals(expected, actual);

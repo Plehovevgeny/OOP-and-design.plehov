@@ -15,19 +15,15 @@ public class Radio {
     }
 
     public void nextRadioChanel() {
-        if (currentRadioChanel < 9) {
-            currentRadioChanel += 1;
-        }
-        if (currentRadioChanel == 9) {
+        this.currentRadioChanel += 1;
+        if (currentRadioChanel == 10) {
             this.currentRadioChanel = 0;
         }
     }
 
     public void prevRadioChanel() {
-        if (currentRadioChanel > 0) {
-            currentRadioChanel -= 1;
-        }
-        if (currentRadioChanel == 0) {
+        this.currentRadioChanel -= 1;
+        if (currentRadioChanel == -1) {
             this.currentRadioChanel = 9;
         }
     }
@@ -37,7 +33,7 @@ public class Radio {
     }
 
     public void setCurrentRadioVolume(int currentRadioVolume) {
-        if (currentRadioVolume <= 10 && currentRadioVolume >= 0)
+        if (currentRadioVolume >= 0 && currentRadioVolume <= 10)
             this.currentRadioVolume = currentRadioVolume;
     }
 
