@@ -6,7 +6,43 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RadioTests {
 
     @Test
-    public void shouldSnowCurrentChanel() {
+    public void shouldSnowCustomRadioInTheMiddle() {
+
+        Radio rad = new Radio(30);
+        rad.setCurrentRadioChanel(20);
+
+        int expected = 20;
+        int actual = rad.getCurrentRadioChanel();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSnowCustomRadioInTheBorder() {
+
+        Radio rad = new Radio(30);
+        rad.setCurrentRadioChanel(29);
+
+        int expected = 29;
+        int actual = rad.getCurrentRadioChanel();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSnowCustomRadioOutTheBorder() {
+
+        Radio rad = new Radio(30);
+        rad.setCurrentRadioChanel(30);
+
+        int expected = 0;
+        int actual = rad.getCurrentRadioChanel();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSnowCurrentChanelOutTheBorder() {
         Radio rad = new Radio();
 
         rad.setCurrentRadioChanel(5);
@@ -97,19 +133,19 @@ public class RadioTests {
     public void shouldSnowCurrentVolume() {
         Radio rad = new Radio();
 
-        rad.setCurrentRadioVolume(5);
+        rad.setCurrentRadioVolume(50);
 
-        int expected = 5;
+        int expected = 50;
         int actual = rad.getCurrentRadioVolume();
 
         assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldSnowCurrentVolumeMoreThenTen() {
+    public void shouldSnowCurrentVolumeMoreThenMaxRadioVolume() {
         Radio rad = new Radio();
 
-        rad.setCurrentRadioVolume(11);
+        rad.setCurrentRadioVolume(101);
 
         int expected = 0;
         int actual = rad.getCurrentRadioVolume();
@@ -133,10 +169,10 @@ public class RadioTests {
     public void shouldSnowNextVolumeInTheMiddle() {
         Radio rad = new Radio();
 
-        rad.setCurrentRadioVolume(6);
+        rad.setCurrentRadioVolume(45);
         rad.increaseVolume();
 
-        int expected = 7;
+        int expected = 46;
         int actual = rad.getCurrentRadioVolume();
 
         assertEquals(expected, actual);
@@ -146,10 +182,10 @@ public class RadioTests {
     public void shouldSnowNextVolumeOnTheBorder() {
         Radio rad = new Radio();
 
-        rad.setCurrentRadioVolume(10);
+        rad.setCurrentRadioVolume(100);
         rad.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = rad.getCurrentRadioVolume();
 
         assertEquals(expected, actual);
@@ -159,10 +195,10 @@ public class RadioTests {
     public void shouldSnowPrevVolumeInTheMiddle() {
         Radio rad = new Radio();
 
-        rad.setCurrentRadioVolume(8);
+        rad.setCurrentRadioVolume(22);
         rad.reduceVolume();
 
-        int expected = 7;
+        int expected = 21;
         int actual = rad.getCurrentRadioVolume();
 
         assertEquals(expected, actual);
