@@ -3,28 +3,44 @@ package ru.netology.domain;
 public class Radio {
 
     private int currentRadioChanel;
+
+    private int minRadioChanel = 0;
+
+    private int maxRadioChanel = 9;
+
     private int currentRadioVolume;
+
+    private int minRadioVolume = 0;
+
+    private int maxRadioVolume = 100;
+
+    public Radio() {
+    }
+
+    public Radio(int amountRadioChanel) {
+        this.maxRadioChanel = amountRadioChanel - 1;
+    }
 
     public int getCurrentRadioChanel() {
         return currentRadioChanel;
     }
 
     public void setCurrentRadioChanel(int currentRadioChanel) {
-        if (currentRadioChanel >= 0 && currentRadioChanel <= 9)
+        if (currentRadioChanel >= minRadioChanel && currentRadioChanel <= maxRadioChanel)
             this.currentRadioChanel = currentRadioChanel;
     }
 
     public void nextRadioChanel() {
         this.currentRadioChanel += 1;
         if (currentRadioChanel == 10) {
-            this.currentRadioChanel = 0;
+            this.currentRadioChanel = minRadioChanel;
         }
     }
 
     public void prevRadioChanel() {
         this.currentRadioChanel -= 1;
         if (currentRadioChanel == -1) {
-            this.currentRadioChanel = 9;
+            this.currentRadioChanel = maxRadioChanel;
         }
     }
 
@@ -33,18 +49,19 @@ public class Radio {
     }
 
     public void setCurrentRadioVolume(int currentRadioVolume) {
-        if (currentRadioVolume >= 0 && currentRadioVolume <= 10)
+        if (currentRadioVolume >= minRadioVolume && currentRadioVolume <= maxRadioVolume)
             this.currentRadioVolume = currentRadioVolume;
     }
 
     public void increaseVolume() {
-        if (currentRadioVolume < 10) {
+        if (currentRadioVolume < maxRadioVolume) {
             currentRadioVolume++;
         }
     }
 
     public void reduceVolume() {
-        if (currentRadioVolume > 0)
+        if (currentRadioVolume > minRadioVolume)
             currentRadioVolume--;
     }
 }
+// git branch flexible, git branch, git checkout flexible, git push -u origin flexible}
