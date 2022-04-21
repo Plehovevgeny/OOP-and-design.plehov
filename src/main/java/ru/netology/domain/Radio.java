@@ -1,5 +1,13 @@
 package ru.netology.domain;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
 
     private int currentRadioChanel;
@@ -14,15 +22,8 @@ public class Radio {
 
     private int maxRadioVolume = 100;
 
-    public Radio() {
-    }
-
     public Radio(int amountRadioChanel) {
         this.maxRadioChanel = amountRadioChanel - 1;
-    }
-
-    public int getCurrentRadioChanel() {
-        return currentRadioChanel;
     }
 
     public void setCurrentRadioChanel(int currentRadioChanel) {
@@ -44,10 +45,6 @@ public class Radio {
         }
     }
 
-    public int getCurrentRadioVolume() {
-        return currentRadioVolume;
-    }
-
     public void setCurrentRadioVolume(int currentRadioVolume) {
         if (currentRadioVolume >= minRadioVolume && currentRadioVolume <= maxRadioVolume)
             this.currentRadioVolume = currentRadioVolume;
@@ -64,4 +61,3 @@ public class Radio {
             currentRadioVolume--;
     }
 }
-// git branch flexible, git branch, git checkout flexible, git push -u origin flexible}
